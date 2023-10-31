@@ -28,6 +28,10 @@ RUN pip install --upgrade pip
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
+
+COPY requirementsAPT.txt ./
+RUN apt install -y $(cat requirementsAPT.txt)
+
 # Install zsh - use "Bira" theme with some customization. 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
     -t bira \
