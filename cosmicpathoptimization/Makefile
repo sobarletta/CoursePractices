@@ -1,9 +1,9 @@
 DOCS = docs
 UML = uml
 
-.PHONY: all check_types py_test local_test kattis_test auto_style flaker coverage create_doc_folder create_docs create_uml
+.PHONY: all check_types py_test local_test kattis_test auto_style flaker coverage create_doc_folder create_docs create_uml clean_up
 
-all: check_types py_test local_test kattis_test auto_style flaker coverage create_doc_folder create_docs create_uml
+all: check_types py_test local_test kattis_test auto_style flaker coverage create_doc_folder create_docs create_uml clean_up
 	@echo "All done!"
 
 check_types:
@@ -83,3 +83,10 @@ ifeq ($(shell which pylint), )
 endif
 	pyreverse -o png -d uml main.py
 	@echo "uml created"
+
+clean_up:
+	rm -rf __pycache__
+	rm -rf .pytest_cache
+	rm -rf .mypy_cache
+	rm -rf .coverage
+	@echo "clean up done"
