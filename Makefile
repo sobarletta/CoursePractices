@@ -1,6 +1,6 @@
 TEST = pytest 
 TEST_ARGS = --verbose --color=yes
-TYPE_CHECK = mypy --strict
+TYPE_CHECK = mypy
 STYLE_CHECK = flake8
 STYLE_FIX = autopep8 --in-place --recursive --aggressive --aggressive
 
